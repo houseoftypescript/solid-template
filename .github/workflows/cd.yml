@@ -22,6 +22,8 @@ jobs:
         run: yarn build
       # - name: Unit Test
       #   run: yarn test
+      - name: Add .nojekyll file
+        run: touch ./dist/.nojekyll
       - name: Deploy GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
