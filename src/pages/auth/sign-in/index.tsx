@@ -1,18 +1,27 @@
+import { useNavigate } from '@solidjs/router';
+import Visibility from '@suid/icons-material/Visibility';
+import VisibilityOff from '@suid/icons-material/VisibilityOff';
 import Button from '@suid/material/Button';
 import Checkbox from '@suid/material/Checkbox';
 import Container from '@suid/material/Container';
 import FormControlLabel from '@suid/material/FormControlLabel';
+import IconButton from '@suid/material/IconButton';
 import TextField from '@suid/material/TextField';
 import { Component, createSignal } from 'solid-js';
 import SolidSVG from '../../../assets/solid.svg';
 import Link from '../../../components/Link';
 
 export const SignInPage: Component = () => {
-  const [username, setUsername] = createSignal('');
-  const [password, setPassword] = createSignal('');
+  const navigate = useNavigate();
+  const [username, setUsername] = createSignal<string>('');
+  const [password, setPassword] = createSignal<string>('');
+  const [showPassword, setShowPassword] = createSignal<boolean>(false);
 
   const signIn = (event: any) => {
     event.preventDefault();
+    if (username() === 'username' && password() === 'password') {
+      navigate('/apps/table');
+    }
   };
 
   return (
@@ -41,12 +50,22 @@ export const SignInPage: Component = () => {
                   required
                 />
                 <TextField
+                  type={showPassword() ? 'text' : 'password'}
                   id="password"
                   name="password"
                   label="Password"
                   placeholder="Password"
                   value={password()}
                   onChange={(event) => setPassword(event.target.value)}
+                  InputProps={{
+                    endAdornment: (
+                      <IconButton
+                        onClick={() => setShowPassword(!showPassword())}
+                      >
+                        {showPassword() ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    ),
+                  }}
                   required
                 />
               </div>

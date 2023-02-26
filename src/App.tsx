@@ -2,6 +2,8 @@ import { Navigate, Route, Routes } from '@solidjs/router';
 import type { Component } from 'solid-js';
 import IndexPage from './pages';
 import NotFoundPage from './pages/404';
+import ChartPage from './pages/apps/chart';
+import TablePage from './pages/apps/table';
 import SignPage from './pages/auth/sign-in';
 import RegisterPage from './pages/auth/sign-up';
 import ForgetPasswordPage from './pages/password/forget';
@@ -19,6 +21,8 @@ const App: Component = () => {
       <Route path="/auth/sign-up" component={RegisterPage} />
       <Route path="/password/forget" component={ForgetPasswordPage} />
       <Route path="/password/reset" component={ResetPasswordPage} />
+      <Route path="/apps/chart" component={ChartPage} />
+      <Route path="/apps/table" component={TablePage} />
       <Route path="*" component={NotFoundPage} />
     </Routes>
   );
