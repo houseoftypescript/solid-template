@@ -16,11 +16,15 @@ const App: Component = () => {
   return (
     <Routes base={base}>
       <Route path="/" component={IndexPage} />
-      <Route path="/auth" element={<Navigate href="/auth/sign-in" />} />
+      <Route
+        path="/auth"
+        element={<Navigate href={`${base}/auth/sign-in`} />}
+      />
       <Route path="/auth/sign-in" component={SignPage} />
       <Route path="/auth/sign-up" component={RegisterPage} />
       <Route path="/password/forget" component={ForgetPasswordPage} />
       <Route path="/password/reset" component={ResetPasswordPage} />
+      <Route path="/apps" element={<Navigate href={`${base}/apps/chart`} />} />
       <Route path="/apps/chart" component={ChartPage} />
       <Route path="/apps/table" component={TablePage} />
       <Route path="*" component={NotFoundPage} />

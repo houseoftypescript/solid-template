@@ -11,6 +11,9 @@ import { Component, createSignal } from 'solid-js';
 import SolidSVG from '../../../assets/solid.svg';
 import Link from '../../../components/Link';
 
+const isProd: boolean = process.env.NODE_ENV === 'production';
+const base: string = isProd ? '/solid-template' : '';
+
 export const SignInPage: Component = () => {
   const navigate = useNavigate();
   const [username, setUsername] = createSignal<string>('');
@@ -20,7 +23,7 @@ export const SignInPage: Component = () => {
   const signIn = (event: any) => {
     event.preventDefault();
     if (username() === 'username' && password() === 'password') {
-      navigate('/apps/table');
+      navigate(`${base}/apps/table`);
     }
   };
 

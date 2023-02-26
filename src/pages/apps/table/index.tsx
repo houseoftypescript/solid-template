@@ -1,4 +1,3 @@
-import Button from '@suid/material/Button';
 import CircularProgress from '@suid/material/CircularProgress';
 import Container from '@suid/material/Container';
 import Paper from '@suid/material/Paper';
@@ -9,7 +8,8 @@ import TableContainer from '@suid/material/TableContainer';
 import TableHead from '@suid/material/TableHead';
 import TableRow from '@suid/material/TableRow';
 import { Component, For, createResource } from 'solid-js';
-import Link from '../../../components/Link';
+import Navbar from '../../../components/Navbar';
+import Footer from '../../../components/Footer';
 
 export type Country = {
   name: {
@@ -44,18 +44,7 @@ export const TablePage: Component = () => {
 
   return (
     <main class="min-h-screen flex flex-col">
-      <nav>
-        <div class="py-8 border-b">
-          <Container>
-            <div class="flex justify-between items-center">
-              <h1 class="uppercase text-2xl">Solid</h1>
-              <Link href="/">
-                <Button variant="contained">Sign Out</Button>
-              </Link>
-            </div>
-          </Container>
-        </div>
-      </nav>
+      <Navbar />
       <div class="grow">
         {countries.loading ? (
           <Container class="py-8">
@@ -123,13 +112,7 @@ export const TablePage: Component = () => {
           <></>
         )}
       </div>
-      <footer>
-        <div class="py-8 border-t">
-          <Container>
-            <p>&copy; 2023 Solid</p>
-          </Container>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 };
