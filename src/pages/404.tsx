@@ -1,6 +1,6 @@
 import Button from '@suid/material/Button';
-import { A } from '@solidjs/router';
 import type { Component } from 'solid-js';
+import Link from '../components/Link';
 
 const NotFoundPage: Component = () => {
   return (
@@ -8,11 +8,11 @@ const NotFoundPage: Component = () => {
       <div class="flex flex-col gap-4 text-center uppercase">
         <h1 class="text-9xl font-bold">404</h1>
         <p class="text-3xl">Page Not Found</p>
-        <A href="/">
+        <Link href="/">
           <Button variant="contained" fullWidth>
             Back to Home
           </Button>
-        </A>
+        </Link>
       </div>
     </main>
   );

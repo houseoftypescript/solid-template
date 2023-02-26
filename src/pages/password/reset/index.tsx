@@ -4,6 +4,7 @@ import Container from '@suid/material/Container';
 import TextField from '@suid/material/TextField';
 import { Component, createSignal } from 'solid-js';
 import SolidSVG from '../../../assets/solid.svg';
+import Link from '../../../components/Link';
 
 export const ResetPasswordPage: Component = () => {
   const [newPassword, setNewPassword] = createSignal('');
@@ -20,9 +21,9 @@ export const ResetPasswordPage: Component = () => {
           <form onSubmit={reset}>
             <div class="flex flex-col gap-8">
               <div class="w-32 mx-auto">
-                <A href="/">
+                <Link href="/">
                   <SolidSVG />
-                </A>
+                </Link>
               </div>
               <div class="flex flex-col gap-2 text-center">
                 <h1 class="uppercase text-4xl font-bold">Reset</h1>
@@ -52,9 +53,12 @@ export const ResetPasswordPage: Component = () => {
                 <Button type="submit" variant="contained">
                   Reset Password
                 </Button>
-                <A href="/auth/sign-in" class="text-blue-500 text-center">
+                <Link
+                  href="/auth/sign-in"
+                  className="text-blue-500 text-center"
+                >
                   Back to Sign In
-                </A>
+                </Link>
               </div>
             </div>
           </form>

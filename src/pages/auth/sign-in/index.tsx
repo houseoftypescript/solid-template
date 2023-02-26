@@ -1,4 +1,3 @@
-import { A } from '@solidjs/router';
 import Button from '@suid/material/Button';
 import Checkbox from '@suid/material/Checkbox';
 import Container from '@suid/material/Container';
@@ -6,6 +5,7 @@ import FormControlLabel from '@suid/material/FormControlLabel';
 import TextField from '@suid/material/TextField';
 import { Component, createSignal } from 'solid-js';
 import SolidSVG from '../../../assets/solid.svg';
+import Link from '../../../components/Link';
 
 export const SignInPage: Component = () => {
   const [username, setUsername] = createSignal('');
@@ -22,9 +22,9 @@ export const SignInPage: Component = () => {
           <form onSubmit={signIn}>
             <div class="flex flex-col gap-8">
               <div class="w-32 mx-auto">
-                <A href="/">
+                <Link href="/">
                   <SolidSVG />
-                </A>
+                </Link>
               </div>
               <div class="flex flex-col gap-2 text-center">
                 <h1 class="uppercase text-4xl font-bold">Welcome</h1>
@@ -53,19 +53,22 @@ export const SignInPage: Component = () => {
               <div class="flex flex-col gap-4">
                 <div class="flex justify-between items-center">
                   <FormControlLabel control={<Checkbox />} label="Remember" />
-                  <A href="/password/forget">
+                  <Link href="/password/forget">
                     <p class="text-blue-500">
                       Forget <span class="hidden md:inline">Your Password</span>
                       ?
                     </p>
-                  </A>
+                  </Link>
                 </div>
                 <Button type="submit" variant="contained">
                   Sign In
                 </Button>
-                <A href="/auth/sign-up" class="text-blue-500 text-center">
+                <Link
+                  href="/auth/sign-up"
+                  className="text-blue-500 text-center"
+                >
                   Sign Up
-                </A>
+                </Link>
               </div>
             </div>
           </form>

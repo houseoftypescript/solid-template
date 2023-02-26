@@ -6,6 +6,7 @@ import FormControlLabel from '@suid/material/FormControlLabel';
 import TextField from '@suid/material/TextField';
 import { Component, createSignal } from 'solid-js';
 import SolidSVG from '../../../assets/solid.svg';
+import Link from '../../../components/Link';
 
 export const SignUpPage: Component = () => {
   const [username, setUsername] = createSignal('');
@@ -22,9 +23,9 @@ export const SignUpPage: Component = () => {
           <form onSubmit={signUp}>
             <div class="flex flex-col gap-8">
               <div class="w-32 mx-auto">
-                <A href="/">
+                <Link href="/">
                   <SolidSVG />
-                </A>
+                </Link>
               </div>
               <div class="flex flex-col gap-2 text-center">
                 <h1 class="uppercase text-4xl font-bold">Welcome</h1>
@@ -53,19 +54,22 @@ export const SignUpPage: Component = () => {
               <div class="flex flex-col gap-4">
                 <div class="flex justify-between items-center">
                   <FormControlLabel control={<Checkbox />} label="Remember" />
-                  <A href="/password/forget">
+                  <Link href="/password/forget">
                     <p class="text-blue-500">
                       Forget <span class="hidden md:inline">Your Password</span>
                       ?
                     </p>
-                  </A>
+                  </Link>
                 </div>
                 <Button type="submit" variant="contained">
                   Sign Up
                 </Button>
-                <A href="/auth/sign-in" class="text-blue-500 text-center">
+                <Link
+                  href="/auth/sign-in"
+                  className="text-blue-500 text-center"
+                >
                   Sign In
-                </A>
+                </Link>
               </div>
             </div>
           </form>
