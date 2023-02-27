@@ -9,7 +9,7 @@ import IconButton from '@suid/material/IconButton';
 import TextField from '@suid/material/TextField';
 import { Component, createSignal } from 'solid-js';
 import SolidSVG from '../../../assets/solid.svg';
-import Link from '../../../components/Link';
+import Link from '../../../components/atoms/Link';
 
 const isProd: boolean = process.env.NODE_ENV === 'production';
 const base: string = isProd ? '/solid-template' : '';

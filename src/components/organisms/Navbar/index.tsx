@@ -1,7 +1,7 @@
-import Button from '@suid/material/Button';
 import Container from '@suid/material/Container';
 import { Component } from 'solid-js';
-import Link from '../Link';
+import Link from '../../atoms/Link';
+import UserMenu from '../../molecules/UserMenu';
 
 export const Navbar: Component = () => {
   return (
@@ -10,15 +10,15 @@ export const Navbar: Component = () => {
         <Container>
           <div class="flex justify-between items-center">
             <div class="flex items-center gap-4 uppercase">
-              <h1 class="text-3xl">
+              <h1 class="text-2xl">
                 <Link href="/apps">Solid</Link>
               </h1>
               <Link href="/apps/chart">Chart</Link>
               <Link href="/apps/table">Table</Link>
             </div>
-            <Link href="/">
-              <Button variant="contained">Sign Out</Button>
-            </Link>
+            <div>
+              <UserMenu />
+            </div>
           </div>
         </Container>
       </div>

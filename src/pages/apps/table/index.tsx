@@ -8,8 +8,8 @@ import TableContainer from '@suid/material/TableContainer';
 import TableHead from '@suid/material/TableHead';
 import TableRow from '@suid/material/TableRow';
 import { Component, For, createResource } from 'solid-js';
-import Navbar from '../../../components/Navbar';
-import Footer from '../../../components/Footer';
+import Footer from '../../../components/organisms/Footer';
+import Navbar from '../../../components/organisms/Navbar';
 
 export type Country = {
   name: {

@@ -7,8 +7,9 @@ import Paper from '@suid/material/Paper';
 import Select, { SelectChangeEvent } from '@suid/material/Select';
 import { SolidApexCharts } from 'solid-apexcharts';
 import { Component, createResource, createSignal } from 'solid-js';
-import Footer from '../../../components/Footer';
-import Navbar from '../../../components/Navbar';
+import Footer from '../../../components/organisms/Footer';
+import Navbar from '../../../components/organisms/Navbar';
+import LayoutTemplate from '../../../templates/LayoutTemplate';
 
 type HistoryData = { price: string; timestamp: number };
 
@@ -88,89 +89,85 @@ export const ChartPage: Component = () => {
   );
 
   return (
-    <main class="min-h-screen flex flex-col">
-      <Navbar />
-      <div class="grow">
-        <Container class="py-8">
-          <Paper>
-            <div class="flex flex-col gap-8 p-8">
-              <FormControl fullWidth>
-                <InputLabel id="coin-select-label">Coin</InputLabel>
-                <Select
-                  id="coin-select"
-                  labelId="coin-select-label"
-                  value={coinUuid()}
-                  label="Coin"
-                  onChange={(event: SelectChangeEvent) => {
-                    console.log(event.target.value);
-                    setCoinUuid(event.target.value);
-                  }}
-                >
-                  {(coinsResponse()?.data.coins.splice(0, 10) || []).map(
-                    (coin: Coin) => {
-                      return <MenuItem value={coin.uuid}>{coin.name}</MenuItem>;
-                    }
-                  )}
-                </Select>
-              </FormControl>
-              {historyResponse.loading ? (
-                <div class="flex items-center justify-center">
-                  <div class="w-16 mx-auto">
-                    <CircularProgress size={'4rem'} class="mx-auto block" />
-                  </div>
+    <LayoutTemplate>
+      <Container class="py-8">
+        <Paper>
+          <div class="flex flex-col gap-8 p-8">
+            <FormControl fullWidth>
+              <InputLabel id="coin-select-label">Coin</InputLabel>
+              <Select
+                id="coin-select"
+                labelId="coin-select-label"
+                value={coinUuid()}
+                label="Coin"
+                onChange={(event: SelectChangeEvent) => {
+                  console.log(event.target.value);
+                  setCoinUuid(event.target.value);
+                }}
+              >
+                {(coinsResponse()?.data.coins.splice(0, 10) || []).map(
+                  (coin: Coin) => {
+                    return <MenuItem value={coin.uuid}>{coin.name}</MenuItem>;
+                  }
+                )}
+              </Select>
+            </FormControl>
+            {historyResponse.loading ? (
+              <div class="flex items-center justify-center">
+                <div class="w-16 mx-auto">
+                  <CircularProgress size={'4rem'} class="mx-auto block" />
                 </div>
-              ) : (
-                <>
-                  {historyResponse() ? (
-                    <SolidApexCharts
-                      type="line"
-                      options={{
-                        chart: { animations: { enabled: false } },
-                        noData: {
-                          text: '',
-                          align: 'center',
-                          verticalAlign: 'middle',
-                        },
-                        title: {
-                          text: 'Price by Day',
-                          align: 'left',
-                        },
-                        xaxis: {
-                          categories: (
-                            historyResponse()
-                              ?.data.history.splice(0, 30)
-                              .reverse() || []
-                          ).map(({ timestamp }: HistoryData) => {
-                            return new Date(timestamp * 1000)
-                              .toISOString()
-                              .split('T')[0];
-                          }),
-                        },
-                      }}
-                      series={[
-                        {
-                          name: 'Price',
-                          data: (
-                            historyResponse()
-                              ?.data.history.splice(0, 30)
-                              .reverse() || []
-                          ).map(({ price }: HistoryData) => {
-                            return parseFloat(parseFloat(price).toFixed(2));
-                          }),
-                        },
-                      ]}
-                    />
-                  ) : (
-                    <></>
-                  )}
-                </>
-              )}
-            </div>
-          </Paper>
-        </Container>
-      </div>
-      <Footer />
-    </main>
+              </div>
+            ) : (
+              <>
+                {historyResponse() ? (
+                  <SolidApexCharts
+                    type="line"
+                    options={{
+                      chart: { animations: { enabled: false } },
+                      noData: {
+                        text: '',
+                        align: 'center',
+                        verticalAlign: 'middle',
+                      },
+                      title: {
+                        text: 'Price by Day',
+                        align: 'left',
+                      },
+                      xaxis: {
+                        categories: (
+                          historyResponse()
+                            ?.data.history.splice(0, 30)
+                            .reverse() || []
+                        ).map(({ timestamp }: HistoryData) => {
+                          return new Date(timestamp * 1000)
+                            .toISOString()
+                            .split('T')[0];
+                        }),
+                      },
+                    }}
+                    series={[
+                      {
+                        name: 'Price',
+                        data: (
+                          historyResponse()
+                            ?.data.history.splice(0, 30)
+                            .reverse() || []
+                        ).map(({ price }: HistoryData) => {
+                          return parseFloat(parseFloat(price).toFixed(2));
+                        }),
+                      },
+                    ]}
+                  />
+                ) : (
+                  <></>
+                )}
+              </>
+            )}
+          </div>
+        </Paper>
+      </Container>
+    </LayoutTemplate>
   );
 };
 

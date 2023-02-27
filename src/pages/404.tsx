@@ -1,6 +1,6 @@
 import Button from '@suid/material/Button';
 import type { Component } from 'solid-js';
-import Link from '../components/Link';
+import Link from '../components/atoms/Link';
 
 const NotFoundPage: Component = () => {
   return (

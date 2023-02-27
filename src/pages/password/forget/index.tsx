@@ -3,7 +3,7 @@ import Container from '@suid/material/Container';
 import TextField from '@suid/material/TextField';
 import { Component, createSignal } from 'solid-js';
 import SolidSVG from '../../../assets/solid.svg';
-import Link from '../../../components/Link';
+import Link from '../../../components/atoms/Link';
 
 export const ForgetPasswordPage: Component = () => {
   const [username, setUsername] = createSignal('');
