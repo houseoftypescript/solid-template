@@ -3199,10 +3199,10 @@ vite-node@0.29.2:
     picocolors "^1.0.0"
     vite "^3.0.0 || ^4.0.0"
 
-vite-plugin-solid-svg@0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-solid-svg/-/vite-plugin-solid-svg-0.6.0.tgz#a80fbff0b5a698939c6920b51756e504382ddd59"
-  integrity sha512-lKuRDmAG/Qm317dgbV1gwtHuzjk4WJQY1nsIBIywcEp8Sie1lzGKcXnfZEpe2itvNO+tKV8YVLkE+H2BEPcXcg==
+vite-plugin-solid-svg@0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/vite-plugin-solid-svg/-/vite-plugin-solid-svg-0.6.1.tgz#f0ae10ef26b0907b17c279ed398aac237c755157"
+  integrity sha512-tKprBmA1h4lofRnZ/oi8SJQ1vdL0U+H2gVo7ZL+PKNIVeOn2A0M3t83A2xsMZjmboIZ17Y27xrugLN+phmdb6Q==
   dependencies:
     svgo "^2.3.1"
 
