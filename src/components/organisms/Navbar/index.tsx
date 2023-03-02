@@ -15,6 +15,7 @@ export const Navbar: Component = () => {
               </h1>
               <Link href="/apps/chart">Chart</Link>
               <Link href="/apps/table">Table</Link>
+              <Link href="/apps/calendar">Calendar</Link>
             </div>
             <div>
               <UserMenu />

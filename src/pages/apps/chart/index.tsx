@@ -7,8 +7,6 @@ import Paper from '@suid/material/Paper';
 import Select, { SelectChangeEvent } from '@suid/material/Select';
 import { SolidApexCharts } from 'solid-apexcharts';
 import { Component, createResource, createSignal } from 'solid-js';
-import Footer from '../../../components/organisms/Footer';
-import Navbar from '../../../components/organisms/Navbar';
 import LayoutTemplate from '../../../templates/LayoutTemplate';
 
 type HistoryData = { price: string; timestamp: number };

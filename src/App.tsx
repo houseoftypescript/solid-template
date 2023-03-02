@@ -10,6 +10,7 @@ import ForgetPasswordPage from './pages/password/forget';
 import ResetPasswordPage from './pages/password/reset';
 import ProfilePage from './pages/user/profile';
 import SettingsPage from './pages/user/settings';
+import CalendarPage from './pages/apps/calendar';
 
 const isProd: boolean = process.env.NODE_ENV === 'production';
 const base: string = isProd ? '/solid-template' : '';
@@ -36,6 +37,7 @@ const App: Component = () => {
       <Route path="/apps" element={<Navigate href={`${base}/apps/chart`} />} />
       <Route path="/apps/chart" component={ChartPage} />
       <Route path="/apps/table" component={TablePage} />
+      <Route path="/apps/calendar" component={CalendarPage} />
       {/* User */}
       <Route
         path="/user"

@@ -7,7 +7,7 @@ const base: string = isProd ? '/solid-template' : '';
 export type LinkProps = {
   href?: string;
   className?: string;
-  children: JSX.Element;
+  children?: JSX.Element;
 };
 
 export const Link: Component<LinkProps> = ({
